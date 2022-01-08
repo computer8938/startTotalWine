@@ -67,14 +67,23 @@
 			<optional>true</optional>
 		</dependency>
 		<!-- JSTL for tomcat-->
-		<dependency>
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
+		</dependency> -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
 		</dependency>
 		<!-- jsp Engine for tomcat -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency> -->
+		<dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		    <version>9.0.41</version>
 		</dependency>
 		<!-- Maps.of같은 것을 쓰게 하는 유틸용 -->
 		<dependency>

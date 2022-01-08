@@ -5,7 +5,7 @@ server:
 spring:
   mvc:
     view:
-      prefix: /WEB-INF/jsp/ 
+      prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:
     # driver-class-name: com.mysql.cj.jdbc.Driver
