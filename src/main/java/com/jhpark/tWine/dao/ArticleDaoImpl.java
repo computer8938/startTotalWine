@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.jhpark.tWine.dto.ArticleDTO;
 
-
+/*
 @Component //Autowired로 주입된 것들이 연결
 public class ArticleDaoImpl implements ArticleDao{
 
@@ -25,3 +25,4 @@ public class ArticleDaoImpl implements ArticleDao{
 		return list;
 	}
 }
+*/
