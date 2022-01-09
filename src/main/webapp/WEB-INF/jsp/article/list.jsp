@@ -8,8 +8,8 @@
 <title>라스트</title>
 </head>
 <body>
-<h1>게시물 리스트</h1>
-<h2>el version</h2>
+	<h1>게시물 리스트</h1>
+	<h2>총 게시물 개수 : ${totCnt }</h2>
 	<c:forEach items="${list}" var="article">
 	<section>
 		번호 : 

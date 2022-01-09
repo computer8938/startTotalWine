@@ -39,8 +39,11 @@ public class Articlecontroller {
 	public String showList(Model model) {
 		System.out.println("showList   =============================");
 		List<ArticleDTO> list = articleService.getList();
+		int totCnt = articleService.getTotCnt();
+		
 		
 		model.addAttribute("list",list);
+		model.addAttribute("totCnt",totCnt);
 		
 		//log.info("list : "+ list);
 		

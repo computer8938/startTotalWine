@@ -64,4 +64,15 @@ public class ArticleServiceImpl implements ArticleService {
 		System.out.println(newId);
 		return newId;
 	}
+
+	/**
+	 * Title : 리스트 페이지에서 게시물 개수 반환을 위해 Overriding(구현).
+	 * Discription : 
+	 * @return articleDao.getTotCnt();
+	 */
+	@Override
+	public int getTotCnt() {
+ 
+		return articleDao.getTotCnt();
+	}
 }

@@ -30,4 +30,11 @@ public interface ArticleService {
 	 */
 	//public void add(Map<String, Object> param);
 	public long add(Map<String, Object> param);
+
+	/**
+	 * Title : 리스트 페이지에서 게시물 개수 반환을 위해 선언
+	 * Discription : 
+	 * @return
+	 */
+	public int getTotCnt();
 }
