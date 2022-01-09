@@ -18,7 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 
 
 /**
- * 
+ * Controller CLASS
+ * Articlecontroller
  * @author jhpark
  *
  */
@@ -48,8 +49,7 @@ public class Articlecontroller {
 	}
 	/**
 	 * article/add.jsp 페이지를 반환,
-	 * @param model
-	 * @return
+	 * @return (String) "article/add"
 	 */
 	@RequestMapping("/article/add")
 	public String showAdd() {
@@ -58,7 +58,7 @@ public class Articlecontroller {
 		return "article/add";
 	}
 	/**
-	 * @return
+	 * @return <String> (newId+params) + "text"
 	 */
 	@RequestMapping("/article/doAdd")
 	@ResponseBody
@@ -68,8 +68,10 @@ public class Articlecontroller {
 //		param.get("contents");
 //		param.put("title1", title);   
 		
-		articleService.add(param);
-		return "게시물이 추가 되었습니다.";
+//		articleService.add(param);
+		long newId = articleService.add(param);
+		
+		return newId + "번 게시물이 추가되었습니다.";
 	}
 	
 	

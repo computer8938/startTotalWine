@@ -6,7 +6,7 @@
 		SELECT * FROM article
 	</select> 
 
-	<insert id="add" parameterType="map">
+	<insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article ( regDate, title, contents ) 
 		     VALUES         ( now(), #{title}, #{contents} );			  
 	</insert> 

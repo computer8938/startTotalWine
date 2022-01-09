@@ -7,8 +7,27 @@ import java.util.Map;
 import com.jhpark.tWine.dto.ArticleDTO;
 
 
+/**
+ * Service INTERFACE
+ * 
+ * @author jhpark
+ *
+ */
 public interface ArticleService {
+	
+	/**
+	 * Title : List 가져오기 위해 선언.
+	 * Discription :현재 리스트 전체를 반환한다.
+	 * @return
+	 */
 	public List<ArticleDTO> getList();
 
-	public void add(Map<String, Object> param);
+	/**
+	 * Title : 단건 데이터 입력을 위해 선언
+	 * Discription : 1. 처음엔 id값을 반환시키지 않았다(void)
+	 *  			 2. id값을 반환하기 위해 long타입의 규격으로 선언.
+	 * @return
+	 */
+	//public void add(Map<String, Object> param);
+	public long add(Map<String, Object> param);
 }
