@@ -22,4 +22,5 @@ public class ArticleDTO {
  	private String regDate;
 	private String title;
 	private String contents;
+	private long hit;
 }

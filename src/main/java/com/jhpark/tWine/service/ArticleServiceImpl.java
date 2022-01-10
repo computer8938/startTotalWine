@@ -107,5 +107,10 @@ public class ArticleServiceImpl implements ArticleService {
 		
 		return getId;
 	}
+	//상세 페이지 노출시 1씩 카운트 증가.
+	@Override
+	public void detailHitUp(long id) {
+		articleDao.detailHitUp(id);
+	}
 	
 }

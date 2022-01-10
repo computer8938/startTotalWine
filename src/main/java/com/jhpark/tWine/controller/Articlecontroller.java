@@ -42,12 +42,8 @@ public class Articlecontroller {
 		List<ArticleDTO> list = articleService.getList();
 		int totCnt = articleService.getTotCnt();
 		
-		
 		model.addAttribute("list",list);
 		model.addAttribute("totCnt",totCnt);
-		
-		//log.info("list : "+ list);
-		
 		
 		return "article/list";
 	}
@@ -62,8 +58,13 @@ public class Articlecontroller {
 	public String showDetail(Model model, long id) {
 		System.out.println("============== showDetail Start  =============================");
 		
+		//상세 페이지로 이동하기 위해 id값을 가져온다.
 		ArticleDTO article = articleService.getPk(id);
+		
 		model.addAttribute("article", article);
+		
+		//상세 페이지 노출시 1씩 카운트 증가.
+		articleService.detailHitUp(id);
 		
 		return "article/detail";
 	}
@@ -87,10 +88,7 @@ public class Articlecontroller {
 	//@ResponseBody
 	public String doAdd(@RequestParam Map<String, Object> param) {
 		System.out.println("============== doAdd  Start  =============================");
-
-System.out.println("========= 매개변수 Map의 param ========="+param);
 		long newId = articleService.add(param);
-System.out.println("========= newId ========="+newId);
 		return "redirect:/article/detail?id="+newId; 
 	}
 	
@@ -120,20 +118,10 @@ System.out.println("========= newId ========="+newId);
 	public String doDelete(long id) {
 		System.out.println("============== doDelete  Start  =============================");
 
-//		long newId = articleService.add(param);
 		articleService.delete(id);
-//		return newId + "번 게시물이 추가되었습니다.";
-//		return "redirect:/article/detail?id="+newId; 
 		return "redirect:/article/list"; 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	/**
 	 * detail페이지에서 게시물 수정 페이지로 이동
 	 * @param model
@@ -158,21 +146,8 @@ System.out.println("========= newId ========="+newId);
 	@RequestMapping("/article/doModify")
 	public String doModify(@RequestParam Map<String, Object> param) {
 		System.out.println("============== doModify  Start  =============================");
-		System.out.println("============== doModify  Start  =============================");
-		System.out.println("====== param  ======>"+param);
-		//====== param  ======>{id=53, title=세번째 제목(수정1-5), contents=세번째 내용(수정1-5)}
-		System.out.println("========================================>");
 
-
-long getId = articleService.modify(param);
-
-
-
-System.out.println("====== getId  ======>"+getId);
-System.out.println("========================================>");
-
-//articleService.modify(param);
-		
+		long getId = articleService.modify(param);
 		
 		return "redirect:/article/detail?id="+getId;
 	}

@@ -8,6 +8,7 @@
 		번호 : ${article.id }<br>
 		제목 : ${article.title }<br>
 		내용 : ${article.contents }<br>
+		조회수 : ${article.hit }<br>
 	</section>
 	<hr>
 	

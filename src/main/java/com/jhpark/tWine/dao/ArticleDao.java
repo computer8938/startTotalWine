@@ -52,5 +52,8 @@ public interface ArticleDao {
 	 */
 	public long modify(Map<String, Object> param);
 
+	//상세 페이지 노출시 1씩 카운트 증가.
+	public void detailHitUp(long id);
+
 	
 }
