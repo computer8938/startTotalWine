@@ -6,15 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상세 리스트</title>
-
-<style>
-	.con{
-		width:1000px;
-		margin: 0 auto;
-	}
-
-</style>
-
+<link rel="stylesheet" href="/resource/common.css">
 </head>
 <body>
 	<h1 class="con">게시물 상세 페이지</h1>
@@ -28,7 +20,7 @@
 	<div class="btns con">
 		<a href="./list">게시물 리스트</a>
 		<a href="./add">게시물 추가</a>
-		<a href="./doModify?id=${article.id } ">게시물 추가</a>
+		<a href="./doModify?id=${article.id } ">게시물 수정</a>
 		<a onClick="if( confirm('삭제하시겠습니까?')==false) return false;" 
 		   href="./doDelete?id=${article.id } ">게시물 삭제</a>
 	</div>
