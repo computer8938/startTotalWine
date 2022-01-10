@@ -51,4 +51,14 @@ public interface ArticleService {
 	 * @return
 	 */
 	public void delete(long id);
+
+
+	
+
+	/**
+	 * Title : modify페이지에서 게시물을 수정
+	 * Discription : 
+	 * @return
+	 */
+	public long modify(Map<String, Object> param);
 }

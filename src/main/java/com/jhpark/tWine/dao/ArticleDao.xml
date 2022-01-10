@@ -13,7 +13,7 @@
 	</select> 
 	
 	<select id="getTotCnt" parameterType="map" resultType="int">
-		SELECT COUNT(*) FROM article
+		SELECT COUNT(id) FROM article
 	</select> 
 
 	<insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="id">
@@ -21,7 +21,15 @@
 		     VALUES         ( now(), #{title}, #{contents} );			  
 	</insert> 
 
-	<insert id="delete" parameterType="long">
+	<delete id="delete" parameterType="long">
 		DELETE FROM article WHERE id = #{id}	  
-	</insert> 
+	</delete> 
+ 	
+	<update id="modify" parameterType="map">
+		UPDATE article
+		   SET title = #{title} 
+		     , contents = #{contents}
+		 WHERE id = #{id}
+	</update>
+
 </mapper>

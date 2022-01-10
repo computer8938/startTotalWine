@@ -53,7 +53,6 @@ public class ArticleServiceImpl implements ArticleService {
 	 * @return (long)newId
 	 */
 	@Override
-//	public void add(Map<String, Object> param) {
 	public long add(Map<String, Object> param) {
 		articleDao.add(param);
 		
@@ -93,4 +92,20 @@ public class ArticleServiceImpl implements ArticleService {
 	public void delete(long id) {
 		articleDao.delete(id);
 	}
+	 
+	/**
+	 * Title : modify페이지에서 게시물을 수정하기 위해 Overriding(구현).
+	 * Discription : 
+	 * @return articleDao.modify(param);
+	 */
+	@Override
+	public long modify(Map<String, Object> param) {
+		System.out.println("==========  ServiceImpl param =========="+param);
+		
+		long getId = Integer.parseInt(String.valueOf(param.get("id")));
+		articleDao.modify(param);
+		
+		return getId;
+	}
+	
 }

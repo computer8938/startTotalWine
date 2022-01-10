@@ -1,6 +1,7 @@
 package com.jhpark.tWine.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -77,7 +78,9 @@ public class Articlecontroller {
 		
 		return "article/add";
 	}
-	/**
+	/**게시물 저장 후 detail화면으로 이동.
+	 * Param @RequestParam Map<String, Object> param
+	 * 
 	 * @return <String> (newId+params) + "text"
 	 */
 	@RequestMapping("/article/doAdd")
@@ -85,8 +88,9 @@ public class Articlecontroller {
 	public String doAdd(@RequestParam Map<String, Object> param) {
 		System.out.println("============== doAdd  Start  =============================");
 
+System.out.println("========= 매개변수 Map의 param ========="+param);
 		long newId = articleService.add(param);
-//		return newId + "번 게시물이 추가되었습니다.";
+System.out.println("========= newId ========="+newId);
 		return "redirect:/article/detail?id="+newId; 
 	}
 	
@@ -107,8 +111,12 @@ public class Articlecontroller {
 //		return sb.toString();
 //	}
 	
+	/**
+	 * detail페이지에서 게시물 삭제
+	 * @param long id
+	 * @return (String)"redirect:/article/list"
+	 */	
 	@RequestMapping("/article/doDelete")
-	//@ResponseBody
 	public String doDelete(long id) {
 		System.out.println("============== doDelete  Start  =============================");
 
@@ -118,4 +126,55 @@ public class Articlecontroller {
 //		return "redirect:/article/detail?id="+newId; 
 		return "redirect:/article/list"; 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * detail페이지에서 게시물 수정 페이지로 이동
+	 * @param model
+	 * @param id
+	 * @return (String)"article/modify"
+	 */
+	@RequestMapping("/article/modify")
+	public String showModify(Model model, long id) {
+		System.out.println("============== showModify  Start  =============================");		
+		ArticleDTO article = articleService.getPk(id);
+
+		model.addAttribute("article", article);
+
+		return "article/modify";
+	} 
+	/**
+	 * detail페이지에서 게시물 수정 페이지로 이동
+	 * @param model
+	 * @param id
+	 * @return (String)"article/modify"
+	 */
+	@RequestMapping("/article/doModify")
+	public String doModify(@RequestParam Map<String, Object> param) {
+		System.out.println("============== doModify  Start  =============================");
+		System.out.println("============== doModify  Start  =============================");
+		System.out.println("====== param  ======>"+param);
+		//====== param  ======>{id=53, title=세번째 제목(수정1-5), contents=세번째 내용(수정1-5)}
+		System.out.println("========================================>");
+
+
+long getId = articleService.modify(param);
+
+
+
+System.out.println("====== getId  ======>"+getId);
+System.out.println("========================================>");
+
+//articleService.modify(param);
+		
+		
+		return "redirect:/article/detail?id="+getId;
+	}
+	
 }

@@ -44,5 +44,13 @@ public interface ArticleDao {
 	 * @return
 	 */
 	public void delete(long id);
+
+
+	/**
+	 * modify페이지에서 게시물 수정 위해 선언. 
+	 * @return
+	 */
+	public long modify(Map<String, Object> param);
+
 	
 }
