@@ -6,17 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>상세 리스트</title>
+
+<style>
+	.con{
+		width:1000px;
+		margin: 0 auto;
+	}
+
+</style>
+
 </head>
 <body>
-	<h1>게시물 상세 페이지</h1>
-	<section>
+	<h1 class="con">게시물 상세 페이지</h1>
+	<section class="con">
 		번호 : ${article.id }<br>
 		제목 : ${article.title }<br>
-		<%-- 내용 : ${article.contents }<br> --%>
+		내용 : ${article.contents }<br>
 	</section>
 	<hr>
 	
-	<a href="./list">게시물 리스트</a>
-	<a href="./add">게시물 추가</a>
+	<div class="btns con">
+		<a href="./list">게시물 리스트</a>
+		<a href="./add">게시물 추가</a>
+		<a href="./doModify?id=${article.id } ">게시물 추가</a>
+		<a href="./doDelete?id=${article.id } ">게시물 추가</a>
+	</div>
 </body>
 </html>
