@@ -83,4 +83,14 @@ public class ArticleServiceImpl implements ArticleService {
 	public ArticleDTO getPk(long id) {
 		return articleDao.getPk(id);
 	}
+	
+	/**
+	 * Title : detail페이지에서 게시물을 삭제하기 위해 Overriding(구현).
+	 * Discription : 
+	 * @return articleDao.delete(id);
+	 */
+	@Override
+	public void delete(long id) {
+		articleDao.delete(id);
+	}
 }

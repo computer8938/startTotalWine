@@ -21,4 +21,7 @@
 		     VALUES         ( now(), #{title}, #{contents} );			  
 	</insert> 
 
+	<insert id="delete" parameterType="long">
+		DELETE FROM article WHERE id = #{id}	  
+	</insert> 
 </mapper>

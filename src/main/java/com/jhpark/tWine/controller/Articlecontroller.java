@@ -107,5 +107,15 @@ public class Articlecontroller {
 //		return sb.toString();
 //	}
 	
+	@RequestMapping("/article/doDelete")
+	//@ResponseBody
+	public String doDelete(long id) {
+		System.out.println("============== doDelete  Start  =============================");
 
+//		long newId = articleService.add(param);
+		articleService.delete(id);
+//		return newId + "번 게시물이 추가되었습니다.";
+//		return "redirect:/article/detail?id="+newId; 
+		return "redirect:/article/list"; 
+	}
 }

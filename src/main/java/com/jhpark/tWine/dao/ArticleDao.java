@@ -38,5 +38,11 @@ public interface ArticleDao {
 	 * @return
 	 */
 	public ArticleDTO getPk(long id);
+
+	/**
+	 * detail페이지에서 게시물을 삭제 위해 선언. 
+	 * @return
+	 */
+	public void delete(long id);
 	
 }

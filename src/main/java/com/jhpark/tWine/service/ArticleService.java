@@ -44,4 +44,11 @@ public interface ArticleService {
 	 * @return
 	 */
 	public ArticleDTO getPk(long id);
+
+	/**
+	 * Title : detail페이지에서 게시물을 삭제
+	 * Discription : 
+	 * @return
+	 */
+	public void delete(long id);
 }
