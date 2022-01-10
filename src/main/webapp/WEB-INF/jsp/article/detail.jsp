@@ -5,18 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>라스트</title>
+<title>상세 리스트</title>
 </head>
 <body>
-	<h1>게시물 리스트</h1>
-	<h2>총 게시물 개수 : ${totCnt }</h2>
-	<c:forEach items="${list}" var="article">
+	<h1>게시물 상세 페이지</h1>
 	<section>
-		<a href="./detail?id=${article.id}"> 번호 : ${article.id }       |       제목 : ${article.title }</a>
+		번호 : ${article.id }<br>
+		제목 : ${article.title }<br>
+		<%-- 내용 : ${article.contents }<br> --%>
 	</section>
 	<hr>
-	</c:forEach> 
 	
+	<a href="./list">게시물 리스트</a>
 	<a href="./add">게시물 추가</a>
 </body>
 </html>

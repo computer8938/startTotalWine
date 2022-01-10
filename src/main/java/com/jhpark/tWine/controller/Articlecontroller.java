@@ -37,7 +37,7 @@ public class Articlecontroller {
 	 */
 	@RequestMapping("/article/list")
 	public String showList(Model model) {
-		System.out.println("showList   =============================");
+		System.out.println("============== showList Start  =============================");
 		List<ArticleDTO> list = articleService.getList();
 		int totCnt = articleService.getTotCnt();
 		
@@ -50,13 +50,30 @@ public class Articlecontroller {
 		
 		return "article/list";
 	}
+	
+	/**
+	 * 리스트 페이지에서 INSERT후 Detail페이지로 이동하기 위해 id(PK)값과 같이 가져가기 위해 선언.
+	 * @param model
+	 * @param id
+	 * @return (String)"article/detail"
+	 */
+	@RequestMapping("/article/detail")
+	public String showDetail(Model model, long id) {
+		System.out.println("============== showDetail Start  =============================");
+		
+		ArticleDTO article = articleService.getPk(id);
+		model.addAttribute("article", article);
+		
+		return "article/detail";
+	}
+	
 	/**
 	 * article/add.jsp 페이지를 반환,
 	 * @return (String) "article/add"
 	 */
 	@RequestMapping("/article/add")
 	public String showAdd() {
-		System.out.println("showAdd   =============================");
+		System.out.println("============== showAdd  Start  =============================");
 		
 		return "article/add";
 	}
@@ -64,18 +81,31 @@ public class Articlecontroller {
 	 * @return <String> (newId+params) + "text"
 	 */
 	@RequestMapping("/article/doAdd")
-	@ResponseBody
+	//@ResponseBody
 	public String doAdd(@RequestParam Map<String, Object> param) {
-		System.out.println("doAdd   =============================");
-//		param.get("title");
-//		param.get("contents");
-//		param.put("title1", title);   
-		
-//		articleService.add(param);
+		System.out.println("============== doAdd  Start  =============================");
+
 		long newId = articleService.add(param);
-		
-		return newId + "번 게시물이 추가되었습니다.";
+//		return newId + "번 게시물이 추가되었습니다.";
+		return "redirect:/article/detail?id="+newId; 
 	}
 	
+//	@RequestMapping("/article/doAdd")
+//	@ResponseBody
+//	public String doAdd(@RequestParam Map<String, Object> param) {
+//		System.out.println("doAdd   =============================");
+//		
+//		long newId = articleService.add(param);
+//		String msg = newId + "번 게시물이 추가되었습니다.";
+//		StringBuilder sb = new StringBuilder();
+//		sb.append("alert('" +msg+ "');" );
+//		sb.append("location.replace('./detail?id=" + newId+ "');");
+//		
+//		sb.insert(0, "<script>");
+//		sb.append("</script>");
+//		
+//		return sb.toString();
+//	}
 	
+
 }

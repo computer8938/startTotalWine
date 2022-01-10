@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * usingTableName : article
  * Discription : article의 Entity를 선언하고, 
  * 				 이 것들을 접근권한자 depth에 맞게 의존성을 주입받아서 사용되게 함.
- * @author jhpark
+ * @author jhpark 
  *
  */
 @Data

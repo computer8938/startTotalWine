@@ -6,6 +6,12 @@
 		SELECT * FROM article
 	</select> 
 	
+	<select id="getPk" parameterType="long" resultType="ArticleDTO">
+		SELECT *
+		  FROM article 
+		 WHERE id = #{id}
+	</select> 
+	
 	<select id="getTotCnt" parameterType="map" resultType="int">
 		SELECT COUNT(*) FROM article
 	</select> 

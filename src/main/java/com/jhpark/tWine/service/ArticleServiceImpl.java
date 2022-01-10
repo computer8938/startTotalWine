@@ -38,7 +38,7 @@ public class ArticleServiceImpl implements ArticleService {
 	/**
 	 * Title : 모든 List 가져오기 위해 Overriding(구현).
 	 * Discription :리스트 전체를 반환한다.
-	 * @return
+	 * @return articleDao.getList();
 	 */
 	@Override
 	public List<ArticleDTO> getList(){
@@ -61,7 +61,6 @@ public class ArticleServiceImpl implements ArticleService {
 		
 //		BigInteger bigIntId = (BigInteger)param.get("id"); 
 //		long newId = bigIntId.longValue();
-		System.out.println(newId);
 		return newId;
 	}
 
@@ -72,7 +71,16 @@ public class ArticleServiceImpl implements ArticleService {
 	 */
 	@Override
 	public int getTotCnt() {
- 
 		return articleDao.getTotCnt();
+	}
+	
+	/**
+	 * Title : 리스트 페이지에서 INSERT후 Detail페이지로 가기위해 id값을 알고 같이 가져가기 위해 Overriding(구현).
+	 * Discription : 
+	 * @return articleDao.getId();
+	 */
+	@Override
+	public ArticleDTO getPk(long id) {
+		return articleDao.getPk(id);
 	}
 }

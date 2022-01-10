@@ -37,4 +37,11 @@ public interface ArticleService {
 	 * @return
 	 */
 	public int getTotCnt();
+
+	/**
+	 * Title : 리스트 페이지에서 INSERT후 Detail페이지로 이동하기 위해 id(PK)값을 알고 같이 가져가기 위해 선언 
+	 * Discription : 
+	 * @return
+	 */
+	public ArticleDTO getPk(long id);
 }

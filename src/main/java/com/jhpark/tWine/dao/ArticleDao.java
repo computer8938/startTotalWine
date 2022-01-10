@@ -32,5 +32,11 @@ public interface ArticleDao {
 	 * @return
 	 */
 	public int getTotCnt();
+
+	/**
+	 * 리스트 페이지에서 INSERT후 Detail페이지로 가기위해 id값을 알고 같이 가져가기 위해 선언. 
+	 * @return
+	 */
+	public ArticleDTO getPk(long id);
 	
 }
